@@ -1,0 +1,40 @@
+<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+    <table style="width: 100%;">
+        <thead>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <label for="name">Name:</label>
+                </td>
+                <td>
+                    <input id="name" type="text" formControlName="name" >
+                </td>
+                <td>
+                    <div *ngIf="name.errors && isValidFormSubmited != null">
+                        <div *ngIf="name.errors.required">
+                            <span>required</span>
+                        </div>
+                        <div *ngIf="name.errors.minlength">
+                            <span>min: 10, max: 15</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="city">City:</label>
+                </td>
+                <td>
+                    <input id="city" type="text" formControlName="city">
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button>Submit</button></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
